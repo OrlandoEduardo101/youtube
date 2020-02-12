@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube/api.dart';
 import 'package:youtube/model/video.dart';
+import 'package:flutter_youtube/flutter_youtube.dart';
 
 class Inicio extends StatefulWidget {
 
@@ -24,9 +25,34 @@ class _InicioState extends State<Inicio> {
     return videos;
   }
 
+  void initState(){
+    super.initState();
+    print("1-initState");
+  }
+
+  void didChangeDependencies(){
+    super.didChangeDependencies();
+        print("2-didChangeDependencies");
+  }
+
+  void didUpdateWidget(Inicio oldWidget){
+    super.didUpdateWidget(oldWidget);
+        print("2-didUpdateWidget");
+
+  }
+
+  void dispose(){
+    super.dispose();
+        print("4-dispose");
+
+  }
+
 
    @override
   Widget build(BuildContext context) {
+
+        print("3-build");
+
 
     
 
@@ -51,7 +77,18 @@ class _InicioState extends State<Inicio> {
                   List<Video> videos = snapshot.data;
                   Video video = videos[index];
 
-                  return Column(
+                  return GestureDetector(
+                    onTap:(){
+
+                      FlutterYoutube.playYoutubeVideoById(
+                        apiKey: CHAVE_YOTUBE_API, 
+                        videoId: video.id,
+                        autoPlay: true,
+                        fullScreen: true,
+                        );
+
+                    } ,
+                    child: Column(
                     children: <Widget>[
                       Container(
                         height: 200,
@@ -67,6 +104,7 @@ class _InicioState extends State<Inicio> {
                         subtitle: Text(video.canal),
                       )
                     ],
+                  )
                   );
 
                 }, 
