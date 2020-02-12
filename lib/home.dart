@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube/customSearchDelegate.dart';
 import 'package:youtube/telas/biblioteca.dart';
 import 'package:youtube/telas/emAlta.dart';
 import 'package:youtube/telas/inicio.dart';
@@ -37,23 +38,30 @@ class _HomeState extends State<Home> {
             height: 22,
             ),
           actions: <Widget>[
+
+            IconButton(
+              icon: Icon(Icons.search), 
+              onPressed: () async{
+                String res = await showSearch(
+                  context: context, 
+                  delegate: CustomSearchDelegate()
+                  );
+                print(res);
+              }
+              /*
             IconButton(
               icon: Icon(Icons.videocam), 
               onPressed: (){
                 print("videocam");
               }
               ),
-              IconButton(
-              icon: Icon(Icons.search), 
-              onPressed: (){
-                print("pesquisa");
-              }
+              
               ),
               IconButton(
               icon: Icon(Icons.account_circle), 
               onPressed: (){
                 print("conta");
-              }
+              }*/
               ),
           ],
       ),
