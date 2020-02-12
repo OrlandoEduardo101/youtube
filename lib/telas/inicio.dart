@@ -25,9 +25,34 @@ class _InicioState extends State<Inicio> {
     return videos;
   }
 
+  void initState(){
+    super.initState();
+    print("1-initState");
+  }
+
+  void didChangeDependencies(){
+    super.didChangeDependencies();
+        print("2-didChangeDependencies");
+  }
+
+  void didUpdateWidget(Inicio oldWidget){
+    super.didUpdateWidget(oldWidget);
+        print("2-didUpdateWidget");
+
+  }
+
+  void dispose(){
+    super.dispose();
+        print("4-dispose");
+
+  }
+
 
    @override
   Widget build(BuildContext context) {
+
+        print("3-build");
+
 
     
 
