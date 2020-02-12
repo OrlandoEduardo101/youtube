@@ -14,12 +14,15 @@ class _HomeState extends State<Home> {
 
   int _indiceAtual = 0;
   List<MaterialColor> _appbar = [Colors.blue, Colors.yellow, Colors.green,Colors.blue];
+  String _resultado = "";
 
   @override
   Widget build(BuildContext context) {
 
+    
+
     List<Widget> telas = [
-      Inicio(),
+      Inicio(_resultado),
       EmAlta(),
       Inscricao(),
       Biblioteca(),
@@ -46,6 +49,9 @@ class _HomeState extends State<Home> {
                   context: context, 
                   delegate: CustomSearchDelegate()
                   );
+                  setState(() {
+                    _resultado = res;
+                  });
                 print(res);
               }
               /*
@@ -77,6 +83,9 @@ class _HomeState extends State<Home> {
           setState(() {
             _indiceAtual = indice;
             print(_indiceAtual);
+            if(_indiceAtual==0){
+              _resultado = "";
+            }
           });
         },
         type: BottomNavigationBarType.shifting,

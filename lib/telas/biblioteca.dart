@@ -13,7 +13,7 @@ class _BibliotecaState extends State<Biblioteca> {
         child: Text(
           "Biblioteca",
           style:TextStyle(
-            fontSize:25,
+            fontSize: 25
           ),
         ),
       ),
