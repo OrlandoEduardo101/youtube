@@ -1,6 +1,6 @@
 # youtube
 
-A new Flutter project.
+Recriando a interface do aplicativo youtube e consumindo a API do google para o youtube.
 
 ## Getting Started
 
